@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Web_BanDT.Models.csdl.Category>
+@if (Model != null && Model.Any())
+{
+    <ul class="navbar_menu">
+        @foreach (var item in Model)
+        {
+        //Equals: so sánh hai đối tượng xem chúng có bằng nhau hay không
+            if (item.biDanh.Equals("trang-chu"))
+            {
+                item.biDanh = "";
+            }
+            <li><a href="/@item.biDanh">@item.TieuDe</a></li>
+        }
+
+    </ul>
+}

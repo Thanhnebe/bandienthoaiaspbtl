@@ -1,0 +1,65 @@
+﻿@model Web_BanDT.Models.EF.tb_Order
+
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div style="font-size:20px;" class="text-center">
+        @TempData["SuccessMessage"].ToString()
+        <span>Quay lại trang sản phẩm <a href="/san-pham">Tại đây</a></span>
+    </div>
+}
+else
+{
+    <div class="col-md-9">
+        @using (Html.BeginForm("Partial_thanhToan", "ShoppingCart", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <h3>Thông tin khách hàng</h3>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                <div class="form-group">
+                    <label>Tên khách Hàng:</label>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Tenkh, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Tenkh, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Số Điện Thoại: </label>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Địa chỉ: </label>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Email: </label>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control " } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-block btn-success">
+                        Đặt Hàng
+                    </button>
+                </div>
+            </div>
+
+        }
+    </div>
+
+}
+

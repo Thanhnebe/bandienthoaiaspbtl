@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Web_BanDT.Models.EF.TB_PRODUCT>
+
+@if (Model != null && Model.Any())
+{
+    foreach (var item in Model)
+    {
+        <!-- Product 1 -->
+        var strImge = "";
+        var img = item.tb_ProductImage.FirstOrDefault(x => x.idDefault=="True");
+        if (img != null)
+        {
+            strImge = img.image;
+        }
+
+        <div class="product-item @item.tb_LoaiSanPham.biDanhLSP">
+            <div class="product discount product_filter">
+                <div class="product_image">
+                    <img src="@strImge" alt="@item.tieuDe">
+                </div>
+
+                @if (item.Pricesales > 0)
+                {
+                    <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>New</span></div>
+                }
+
+                <div class="product_info">
+                    <h6 class="product_name"><a href="/chi-tiet/@item.biDanh-p@(item.ID)">@item.tieuDe</a></h6>
+                    @if (item.Pricesales > 0)
+                    {
+                        <div class="product_price">@Web_BanDT.Common.Common.FormatNumber(item.Pricesales, 0)đ<span>@Web_BanDT.Common.Common.FormatNumber(item.Price, 0)đ</span></div>
+
+                    }
+                    else
+                    {
+                        <div class="product_price">@Web_BanDT.Common.Common.FormatNumber(item.Price, 0)đ</div>
+                    }
+                </div>
+            </div>
+            <div class="red_button add_to_cart_button"><a href="#" class="btnAddToCart" data-id="@item.ID">add to cart</a></div>
+        </div>
+    }
+}

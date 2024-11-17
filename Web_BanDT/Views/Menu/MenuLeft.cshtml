@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Web_BanDT.Models.csdl.LoaiSanPham>
+@*Model có ít nhất một phần tử nào đó hay không.*@
+@if (Model != null && Model.Any())
+{
+    // chạy else trước kiểm nếu k có id truyền vào
+    <ul class="sidebar_categories">
+        @foreach (var item in Model)
+        {
+            if (ViewBag.CateID==item.id)
+            {
+                <li class="active"><a href="/danh-muc-san-pham/@item.biDanh-@(item.id)"><span>
+                <i class="fa fa-angle-double-right" aria-hidden="true"></i></span>@item.tieuDe</a></li>
+            }
+            else
+            {
+                <li><a href="/danh-muc-san-pham/@item.biDanh-@(item.id)">@item.tieuDe</a></li>
+            }
+
+        }
+
+    </ul>
+}

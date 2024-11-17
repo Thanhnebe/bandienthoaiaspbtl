@@ -1,0 +1,124 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_sidebar</title>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="~/Content/clients/dist/img/avatar.png"class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+                @{
+                    @*var user = (Web_BanDT.Models.csdl.NHANVIEN)HttpContext.Current.Session["username"];
+                    <a class="d-block">@user.tenNhanVien</a>*@
+                }
+            </div>
+          
+        </div>
+
+
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+    with font-awesome or any other icon font library -->
+                <li class="nav-item">
+                    <a href="~/Admin/Category" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Danh Mục
+
+                        </p>
+                    </a>
+
+                </li>
+                <li class="nav-item">
+                    <a href="~/Admin/TinTuc" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Tin Tức
+
+                        </p>
+                    </a>
+                </li>
+               
+                <li class="nav-item">
+                    <a href="~/admin/ThongTinChiTietDonHang" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Đơn Hàng
+
+                        </p>
+                    </a>
+                </li>
+          
+                <li class="nav-item">
+                    <a href="~/admin/QuyenNV" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Phân Quyền
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Quản Lý Sản Phẩm
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="~/admin/productCategory" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh mục sản phẩm</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="~/admin/Product" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Sản Phẩm</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="~/admin/QLNhanVien" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Quản lý tài khoản
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/admin/Home/DangXuat" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Đăng Xuất
+
+                        </p>
+                    </a>
+                </li>
+
+
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</body>
+</html>

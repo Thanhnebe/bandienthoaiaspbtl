@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Web_BanDT.Models.EF.tb_orderDeTail>
+@using Web_BanDT.Common
+@if (Model != null && Model.Any())
+{
+    int i = 1;
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Thành tiền</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>@item.TB_PRODUCT.tieuDe</td>
+                    <td>@item.price</td>
+                    <td>@item.Quantity</td>
+                    <td>@Web_BanDT.Common.Common.FormatNumber((item.price * item.Quantity), 0)</td>
+                </tr>
+                i++;
+            }
+        </tbody>
+    </table>
+}
+

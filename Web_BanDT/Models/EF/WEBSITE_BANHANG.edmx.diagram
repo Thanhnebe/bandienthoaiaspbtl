@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2654975919fa4e2e9673177d78a2b556" Name="Diagram1">
+        <EntityTypeShape EntityType="WEBSITE_BANHANGModel.ACOUNT" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBSITE_BANHANGModel.CHUCNANG" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBSITE_BANHANGModel.KHACHHANG" Width="1.5" PointX="9.75" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBSITE_BANHANGModel.NHANVIEN" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBSITE_BANHANGModel.NhanVien_ChucNang" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBSITE_BANHANGModel.PHANQUYEN" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBSITE_BANHANGModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBSITE_BANHANGModel.tb_LoaiSanPham" Width="1.5" PointX="9.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBSITE_BANHANGModel.tb_Order" Width="1.5" PointX="12" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBSITE_BANHANGModel.tb_orderDeTail" Width="1.5" PointX="14.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBSITE_BANHANGModel.tb_postBaiViet" Width="1.5" PointX="7.5" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBSITE_BANHANGModel.TB_PRODUCT" Width="1.5" PointX="12" PointY="12.375" IsExpanded="true" />
+        <AssociationConnector Association="WEBSITE_BANHANGModel.FK_ChucNangPhanQuyen" ManuallyRouted="false" />
+        <AssociationConnector Association="WEBSITE_BANHANGModel.FK_tb_Order_KHACHHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="WEBSITE_BANHANGModel.FK_NhanVienChucNang" ManuallyRouted="false" />
+        <AssociationConnector Association="WEBSITE_BANHANGModel.FK_NhanVienPHANQUYEN" ManuallyRouted="false" />
+        <AssociationConnector Association="WEBSITE_BANHANGModel.FK_TB_PRODUCT_tb_LoaiSanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="WEBSITE_BANHANGModel.FK_tb_orderDetail_tb_order" ManuallyRouted="false" />
+        <AssociationConnector Association="WEBSITE_BANHANGModel.FK_tb_OrderDetail_Product" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="WEBSITE_BANHANGModel.tb_Category" Width="1.5" PointX="5.25" PointY="8.625" />
+        <EntityTypeShape EntityType="WEBSITE_BANHANGModel.tb_ThongBaoMoi" Width="1.5" PointX="10.5" PointY="6.875" />
+        <AssociationConnector Association="WEBSITE_BANHANGModel.FK_tb_Category_NhanVien" />
+        <AssociationConnector Association="WEBSITE_BANHANGModel.FK_THONGBAO_NHANVIEN" />
+        <AssociationConnector Association="WEBSITE_BANHANGModel.FK_tb_Posts_Category" />
+        <AssociationConnector Association="WEBSITE_BANHANGModel.FK_tb_ThongBaoMoi_tb_Category" />
+        <EntityTypeShape EntityType="WEBSITE_BANHANGModel.TB_datNhanThongBao" Width="1.5" PointX="7.375" PointY="3.75" />
+        <EntityTypeShape EntityType="WEBSITE_BANHANGModel.tb_ProductImage" Width="1.5" PointX="14.25" PointY="16.875" />
+        <AssociationConnector Association="WEBSITE_BANHANGModel.FK_tb_ProductImage_Product" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

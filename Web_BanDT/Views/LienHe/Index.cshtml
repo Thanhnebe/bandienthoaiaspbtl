@@ -1,0 +1,52 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Sherad/_Layout.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/contact_styles.css">
+<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/contact_responsive.css">
+
+<div class="container contact_container">
+    <div class="row">
+        <div class="col">
+
+            <!-- Breadcrumbs -->
+
+            <div class="breadcrumbs d-flex flex-row align-items-center">
+                <ul>
+                    <li><a href="index.html">Liên hệ</a></li>
+                    <li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Contact</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Map Container -->
+
+    <div class="row">
+        <div class="col">
+            <h3>Thông tin liên hệ</h3>
+            <p>Tên: Hà Trọng Thắng</p>
+            <p>SDT:0356587127</p>
+            <p>Email: trongthang412003@gmail.com</p>
+        </div>
+        <div class="col">
+            <div id="google_map">
+                <div class="map_container">
+
+                    <div id="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.0624766960523!2d106.6262867749703!3d10.806526989344071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752be2853ce7cd%3A0x4111b3b3c2aca14a!2zMTQwIEzDqiBUcuG7jW5nIFThuqVuLCBUw6J5IFRo4bqhbmgsIFTDom4gUGjDuiwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1698881926269!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script src="~/Content/assets/js/contact_custom.js"></script>
+}

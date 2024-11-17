@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Web_BanDT.Models.EF.tb_Order>
+
+@{
+    ViewBag.Title = "kiemTraDonHang";
+    Layout = "~/Views/Sherad/_Layout.cshtml";
+}
+@using Web_BanDT.Common
+<div class="container " style="margin-top:200px;">
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title text-center text-danger">Danh Sách Đơn Hàng</h3>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Mã đơn hàng</th>
+                            <th>Tên Khách hàng</th>
+                            <th>Phone</th>
+                            <th>Tiền</th>
+                            <th>Trạng Thái</th>
+                            <th>Ngày tạo</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @if (Model != null && Model.Any())
+                        {
+                            int i = 1;
+                            foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@i</td>
+                                    <td>@item.MaSanPham</td>
+                                    <td>@item.Tenkh</td>
+                                    <td>@item.Phone</td>
+                                    <td>@Web_BanDT.Common.Common.FormatNumber(item.tongTien, 0)</td>
+                                    <td>Chờ Thanh Toán</td>
+                                    <td>@item.CreatedDate</td>
+                                    <td>
+                                        <a href="/ShoppingCart/View/@item.ID" class="btn btn-sm btn-success">Xem</a>
+
+                                    </td>
+                                </tr>
+                                i++;
+                            }
+                        }
+                    </tbody>
+                </table>
+
+
+            </div>
+            <!-- /.card-body -->
+            <!-- /.card-footer-->
+        </div>
+        <!-- /.card -->
+
+    </section>
+</div>

@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WEBSITE_BANHANGModelStoreContainer" CdmEntityContainer="WEBSITE_BANHANGEntities1">
+    <EntitySetMapping Name="ACOUNTs">
+      <EntityTypeMapping TypeName="WEBSITE_BANHANGModel.ACOUNT">
+        <MappingFragment StoreEntitySet="ACOUNT">
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="PASSSWORD" ColumnName="PASSSWORD" />
+          <ScalarProperty Name="ROLE" ColumnName="ROLE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHUCNANGs">
+      <EntityTypeMapping TypeName="WEBSITE_BANHANGModel.CHUCNANG">
+        <MappingFragment StoreEntitySet="CHUCNANG">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="tenChucNang" ColumnName="tenChucNang" />
+          <ScalarProperty Name="MaChucNang" ColumnName="MaChucNang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHACHHANGs">
+      <EntityTypeMapping TypeName="WEBSITE_BANHANGModel.KHACHHANG">
+        <MappingFragment StoreEntitySet="KHACHHANG">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="PASSSWORD" ColumnName="PASSSWORD" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="tenKhachHang" ColumnName="tenKhachHang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHANVIENs">
+      <EntityTypeMapping TypeName="WEBSITE_BANHANGModel.NHANVIEN">
+        <MappingFragment StoreEntitySet="NHANVIEN">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="tenNhanVien" ColumnName="tenNhanVien" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="idPhanQuyen" ColumnName="idPhanQuyen" />
+          <ScalarProperty Name="UserNmae" ColumnName="UserNmae" />
+          <ScalarProperty Name="passWord" ColumnName="passWord" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhanVien_ChucNang">
+      <EntityTypeMapping TypeName="WEBSITE_BANHANGModel.NhanVien_ChucNang">
+        <MappingFragment StoreEntitySet="NhanVien_ChucNang">
+          <ScalarProperty Name="IDnhanVien" ColumnName="IDnhanVien" />
+          <ScalarProperty Name="IDnchucNang" ColumnName="IDnchucNang" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHANQUYENs">
+      <EntityTypeMapping TypeName="WEBSITE_BANHANGModel.PHANQUYEN">
+        <MappingFragment StoreEntitySet="PHANQUYEN">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="tenQuyen" ColumnName="tenQuyen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="WEBSITE_BANHANGModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_LoaiSanPham">
+      <EntityTypeMapping TypeName="WEBSITE_BANHANGModel.tb_LoaiSanPham">
+        <MappingFragment StoreEntitySet="tb_LoaiSanPham">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="tieuDeLSP" ColumnName="tieuDeLSP" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="SeoMoTa" ColumnName="SeoMoTa" />
+          <ScalarProperty Name="SeoTuKhoa" ColumnName="SeoTuKhoa" />
+          <ScalarProperty Name="SeoTieuDe" ColumnName="SeoTieuDe" />
+          <ScalarProperty Name="biDanhLSP" ColumnName="biDanhLSP" />
+          <ScalarProperty Name="icon" ColumnName="icon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Order">
+      <EntityTypeMapping TypeName="WEBSITE_BANHANGModel.tb_Order">
+        <MappingFragment StoreEntitySet="tb_Order">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MaSanPham" ColumnName="MaSanPham" />
+          <ScalarProperty Name="Tenkh" ColumnName="Tenkh" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="tongTien" ColumnName="tongTien" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Craetedby" ColumnName="Craetedby" />
+          <ScalarProperty Name="idKhacHang" ColumnName="idKhacHang" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_orderDeTail">
+      <EntityTypeMapping TypeName="WEBSITE_BANHANGModel.tb_orderDeTail">
+        <MappingFragment StoreEntitySet="tb_orderDeTail">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_postBaiViet">
+      <EntityTypeMapping TypeName="WEBSITE_BANHANGModel.tb_postBaiViet">
+        <MappingFragment StoreEntitySet="tb_postBaiViet">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="tieuDe" ColumnName="tieuDe" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="moTa" ColumnName="moTa" />
+          <ScalarProperty Name="ChiTiet" ColumnName="ChiTiet" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="SeoTieuDe" ColumnName="SeoTieuDe" />
+          <ScalarProperty Name="SeoMoTa" ColumnName="SeoMoTa" />
+          <ScalarProperty Name="SeoTuKhoa" ColumnName="SeoTuKhoa" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Craetedby" ColumnName="Craetedby" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="biDanh" ColumnName="biDanh" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="idNhanVien" ColumnName="idNhanVien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_PRODUCT">
+      <EntityTypeMapping TypeName="WEBSITE_BANHANGModel.TB_PRODUCT">
+        <MappingFragment StoreEntitySet="TB_PRODUCT">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="tieuDe" ColumnName="tieuDe" />
+          <ScalarProperty Name="ProductCategoryId" ColumnName="ProductCategoryId" />
+          <ScalarProperty Name="productCode" ColumnName="productCode" />
+          <ScalarProperty Name="moTa" ColumnName="moTa" />
+          <ScalarProperty Name="ChiTiet" ColumnName="ChiTiet" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Pricesales" ColumnName="Pricesales" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="SeoMoTa" ColumnName="SeoMoTa" />
+          <ScalarProperty Name="SeoTuKhoa" ColumnName="SeoTuKhoa" />
+          <ScalarProperty Name="SeoTieuDe" ColumnName="SeoTieuDe" />
+          <ScalarProperty Name="isHome" ColumnName="isHome" />
+          <ScalarProperty Name="isFeature" ColumnName="isFeature" />
+          <ScalarProperty Name="isHost" ColumnName="isHost" />
+          <ScalarProperty Name="isSale" ColumnName="isSale" />
+          <ScalarProperty Name="biDanh" ColumnName="biDanh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Category">
+      <EntityTypeMapping TypeName="WEBSITE_BANHANGModel.tb_Category">
+        <MappingFragment StoreEntitySet="tb_Category">
+          <ScalarProperty Name="idNhanVien" ColumnName="idNhanVien" />
+          <ScalarProperty Name="biDanh" ColumnName="biDanh" />
+          <ScalarProperty Name="CreatyDate" ColumnName="CreatyDate" />
+          <ScalarProperty Name="SeoTuKhoa" ColumnName="SeoTuKhoa" />
+          <ScalarProperty Name="SeoMoTa" ColumnName="SeoMoTa" />
+          <ScalarProperty Name="MieuTa" ColumnName="MieuTa" />
+          <ScalarProperty Name="SeoTieuDe" ColumnName="SeoTieuDe" />
+          <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_ThongBaoMoi">
+      <EntityTypeMapping TypeName="WEBSITE_BANHANGModel.tb_ThongBaoMoi">
+        <MappingFragment StoreEntitySet="tb_ThongBaoMoi">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="idNhanVien" ColumnName="idNhanVien" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="biDanh" ColumnName="biDanh" />
+          <ScalarProperty Name="SeoTuKhoa" ColumnName="SeoTuKhoa" />
+          <ScalarProperty Name="SeoMoTa" ColumnName="SeoMoTa" />
+          <ScalarProperty Name="SeoTieuDe" ColumnName="SeoTieuDe" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="moTa" ColumnName="moTa" />
+          <ScalarProperty Name="Categoryld" ColumnName="Categoryld" />
+          <ScalarProperty Name="tieuDe" ColumnName="tieuDe" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_datNhanThongBao">
+      <EntityTypeMapping TypeName="WEBSITE_BANHANGModel.TB_datNhanThongBao">
+        <MappingFragment StoreEntitySet="TB_datNhanThongBao">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_ProductImage">
+      <EntityTypeMapping TypeName="WEBSITE_BANHANGModel.tb_ProductImage">
+        <MappingFragment StoreEntitySet="tb_ProductImage">
+          <ScalarProperty Name="Craetedby" ColumnName="Craetedby" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="idDefault" ColumnName="idDefault" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="IDImage" ColumnName="IDImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

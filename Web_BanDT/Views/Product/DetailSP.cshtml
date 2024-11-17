@@ -1,0 +1,263 @@
+﻿@model Web_BanDT.Models.EF.TB_PRODUCT
+
+@using Web_BanDT.Common
+@{
+    ViewBag.Title = Model.SeoTieuDe;
+    ViewBag.SeoDescription = Model.SeoMoTa ?? Model.SeoTieuDe;
+    ViewBag.SeoKeyWord = Model.SeoTuKhoa ?? Model.SeoTieuDe;
+    Layout = "~/Views/Sherad/_Layout.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/single_styles.css">
+<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/single_responsive.css">
+@if (Model != null)
+{
+    <div class="container single_product_container">
+        <div class="row">
+            <div class="col">
+
+                <!-- Đường dẫn các mục lục -->
+
+                <div class="breadcrumbs d-flex flex-row align-items-center">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/danh-muc-san-pham/@Model.tb_LoaiSanPham.biDanhLSP-@Model.ProductCategoryId"><i class="fa fa-angle-right" aria-hidden="true"></i>@Model.tb_LoaiSanPham.tieuDeLSP</a></li>
+                        <li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>@Model.tieuDe</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <!--Chi tiết sản phẩm-->
+        <div class="row">
+            <div class="col-lg-7">
+                @if (Model.tb_ProductImage != null && Model.tb_ProductImage.Any())
+                {
+                    <div class="single_product_pics">
+                        <div class="row">
+                            <div class="col-lg-3 thumbnails_col order-lg-1 order-2">
+                                <div class="single_product_thumbnails">
+                                    <ul>
+                                        @foreach (var item in Model.tb_ProductImage)
+                                        {
+
+                                            if (item.idDefault=="True")
+                                            {
+                                                <li class="active"><img src="@item.image" alt="" data-image="@item.image"></li>
+
+                                            }
+                                            else
+                                            {
+                                                <li><img src="@item.image" alt="" data-image="@item.image"></li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-9 image_col order-lg-2 order-1">
+                                <div class="single_product_image">
+                                    <div class="single_product_image_background" style="background-image: url(@Model.tb_ProductImage.FirstOrDefault(x=>x.idDefault=="True").image)"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="col-lg-5">
+                <div class="product_details">
+                    <div class="product_details_title">
+                        <h2>@Model.tieuDe</h2>
+                        <p>@Model.SeoMoTa</p>
+
+                    </div>
+                    @if (Model.Pricesales > 0)
+                    {
+                        <div class="original_price">@Web_BanDT.Common.Common.FormatNumber(Model.Price, 0)</div>
+                        <div class="product_price">@Web_BanDT.Common.Common.FormatNumber(Model.Pricesales, 0)</div>
+                    }
+                    else
+                    {
+                        <div class="product_price">@Web_BanDT.Common.Common.FormatNumber(Model.Price, 0)</div>
+                    }
+                    <ul class="star_rating">
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                    </ul>
+
+                    <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
+                        <span>Quantity:</span>
+                        <div class="quantity_selector">
+                            <span class="minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                            <span id="quantity_value">1</span>
+                            <span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                        </div>
+                        <div class="red_button add_to_cart_button"><a href="#" class="btnAddToCart" data-id="@Model.ID">add to cart</a></div>
+                        <div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--Tab nhận xét sản phẩm-->
+    <div class="tabs_section_container">
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="tabs_container">
+                        <ul class="tabs d-flex flex-sm-row flex-column align-items-left align-items-md-center justify-content-center">
+                            <li class="tab active" data-active-tab="tab_1"><span>Mô Tả</span></li>
+                            <li class="tab" data-active-tab="tab_3"><span>Nhận Xét (3)</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+
+                    <!-- Tab Description -->
+
+                    <div id="tab_1" class="tab_container active">
+                        <div class="row">
+                            <!--Raz: trong chi tiết có chứa một đoạn mã html-->
+                            @Html.Raw(Model.ChiTiet)
+                        </div>
+                    </div>
+
+                    <!-- Tab Additional Info -->
+                    <!-- Tab Reviews -->
+
+                    <div id="tab_3" class="tab_container">
+                        <div class="row">
+
+                            <!-- User Reviews -->
+
+                            <div class="col-lg-6 reviews_col">
+                                <div class="tab_title reviews_title">
+                                    <h4>Nhận Xét (3)</h4>
+                                </div>
+
+                                <!-- User Review -->
+
+                                <div class="user_review_container d-flex flex-column flex-sm-row">
+                                    <div class="user">
+                                        <div class="user_pic">
+
+                                            <img src="~/Content/assets/dist/img/avatar2.png" style="width:70px;" />
+                                        </div>
+                                        <div class="user_rating">
+                                            <ul class="star_rating">
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="review">
+                                        <div class="review_date">2-11-2023</div>
+                                        <div class="user_name">HTT</div>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    </div>
+                                </div>
+
+                                <!-- User Review -->
+
+                                <div class="user_review_container d-flex flex-column flex-sm-row">
+                                    <div class="user">
+                                        <div class="user_pic">
+
+                                            <img src="~/Content/assets/dist/img/user4-128x128.jpg" style="width:70px;" />
+                                        </div>
+                                        <div class="user_rating">
+                                            <ul class="star_rating">
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="review">
+                                        <div class="review_date">2-11-2023</div>
+                                        <div class="user_name">HTrongThang</div>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    </div>
+                                </div>
+                                <!-- User Review -->
+
+                                <div class="user_review_container d-flex flex-column flex-sm-row">
+                                    <div class="user">
+                                        <div class="user_pic">
+                                            <img src="~/Content/assets/dist/img/user2-160x160.jpg" style="width:70px;" />
+
+                                        </div>
+                                        <div class="user_rating">
+                                            <ul class="star_rating">
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="review">
+                                        <div class="review_date">2-11-2023</div>
+                                        <div class="user_name">HTrongThang</div>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <!-- Add Review -->
+
+                            <div class="col-lg-6 add_review_col">
+
+                                <div class="add_review">
+                                    <form id="review_form" action="post">
+                                        <div>
+                                            <h1>Add Review</h1>
+                                            <input id="review_name" class="form_input input_name" type="text" name="name" placeholder="Name*" required="required" data-error="Name is required.">
+                                            <input id="review_email" class="form_input input_email" type="email" name="email" placeholder="Email*" required="required" data-error="Valid email is required.">
+                                        </div>
+                                        <div>
+                                            <h1>Your Rating:</h1>
+                                            <ul class="user_star_rating">
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                                            </ul>
+                                            <textarea id="review_message" class="input_review" name="message" placeholder="Your Review" rows="4" required data-error="Please, leave us a review."></textarea>
+                                        </div>
+                                        <div class="text-left text-sm-right">
+                                            <button id="review_submit" type="submit" class="red_button review_submit_btn trans_300" value="Submit">submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+}
+@section scripts{
+    <script src="~/Content/assets/js/single_custom.js"></script>
+}
+

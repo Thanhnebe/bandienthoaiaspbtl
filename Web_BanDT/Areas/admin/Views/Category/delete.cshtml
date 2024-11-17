@@ -1,0 +1,94 @@
+﻿@model Web_BanDT.Models.csdl.Category
+@{
+    ViewBag.Title = "Xóa category";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h2>Xóa danh mục</h2>
+        </div>
+        <div class="card-body">
+            <div class="bs-stepper linear">
+                @using (Html.BeginForm("delete", "Category", FormMethod.Post, new { }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    <div class="bs-stepper-content">
+                        <!-- your steps content here -->
+                        <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                            <div class="form-group">
+                                <label>Tên Danh Mục</label>
+                                @Html.TextBoxFor(x => x.TieuDe, new
+                                {
+                               @class = "form-control",
+                               placeHolder = "Nhập Tên danh mục"
+                           })
+                                @Html.ValidationMessageFor(x => x.TieuDe, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                <label>Mô Tả</label>
+                                @Html.TextBoxFor(x => x.MieuTa, new
+                                {
+                                    @class = "form-control",
+                                    placeHolder = "Nhập miêu tả"
+                                    })
+                                @Html.ValidationMessageFor(x => x.MieuTa, null, new { @class = "text-danger" })
+
+                            </div>
+                            <div class="form-group">
+                                <label>Tiêu đề</label>
+                                @Html.TextBoxFor(x => x.SeoTieuDe, new
+                                {
+                                    @class = "form-control",
+                                    placeHolder = "Nhập miêu tả"
+                                    })
+                                @Html.ValidationMessageFor(x => x.SeoTieuDe, null, new { @class = "text-danger" })
+
+                            </div>
+                            <div class="form-group">
+                                <label>Miêu tả</label>
+                                @Html.TextBoxFor(x => x.MieuTa, new
+                                {
+                                    @class = "form-control",
+                                    placeHolder = "Nhập miêu tả"
+                                    })
+                                @Html.ValidationMessageFor(x => x.MieuTa, null, new { @class = "text-danger" })
+
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Từ Khóa</label>
+                                @Html.TextBoxFor(x => x.SeoTuKhoa, new
+                                {
+                                    @class = "form-control",
+                                    placeHolder = "Nhập miêu tả"
+                                    })
+                                @Html.ValidationMessageFor(x => x.SeoTuKhoa, null, new { @class = "text-danger" })
+
+                            </div>
+                            <div class="form-group">
+                                <a href="~/admin/Category" class="btn btn-success">Quay lại</a>
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </div>
+
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+
+        </div>
+        <!-- /.card-footer-->
+    </div>
+    <!-- /.card -->
+
+</section>

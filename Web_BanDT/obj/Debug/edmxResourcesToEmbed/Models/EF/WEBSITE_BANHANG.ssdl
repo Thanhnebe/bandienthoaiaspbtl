@@ -1,0 +1,415 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WEBSITE_BANHANGModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ACOUNT">
+    <Key>
+      <PropertyRef Name="USERNAME" />
+    </Key>
+    <Property Name="USERNAME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PASSSWORD" Type="varchar" MaxLength="50" />
+    <Property Name="ROLE" Type="int" />
+  </EntityType>
+  <EntityType Name="CHUCNANG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenChucNang" Type="nvarchar" MaxLength="100" />
+    <Property Name="MaChucNang" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="KHACHHANG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PHONE" Type="varchar" MaxLength="11" />
+    <Property Name="ADDRESS" Type="nvarchar" MaxLength="100" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="50" />
+    <Property Name="USERNAME" Type="varchar" MaxLength="50" />
+    <Property Name="PASSSWORD" Type="varchar" MaxLength="50" />
+    <Property Name="NgaySinh" Type="date" />
+    <Property Name="tenKhachHang" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenNhanVien" Type="nvarchar" MaxLength="100" />
+    <Property Name="SDT" Type="varchar" MaxLength="20" />
+    <Property Name="NgaySinh" Type="date" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
+    <Property Name="idPhanQuyen" Type="int" />
+    <Property Name="UserNmae" Type="varchar" MaxLength="200" />
+    <Property Name="passWord" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="NhanVien_ChucNang">
+    <Key>
+      <PropertyRef Name="IDnhanVien" />
+      <PropertyRef Name="IDnchucNang" />
+    </Key>
+    <Property Name="IDnhanVien" Type="int" Nullable="false" />
+    <Property Name="IDnchucNang" Type="int" Nullable="false" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PHANQUYEN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenQuyen" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tb_Category">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TieuDe" Type="nvarchar" MaxLength="150" />
+    <Property Name="SeoTieuDe" Type="nvarchar" MaxLength="250" />
+    <Property Name="MieuTa" Type="nvarchar" MaxLength="500" />
+    <Property Name="SeoMoTa" Type="nvarchar" MaxLength="500" />
+    <Property Name="SeoTuKhoa" Type="nvarchar" MaxLength="250" />
+    <Property Name="CreatyDate" Type="datetime" />
+    <Property Name="biDanh" Type="nvarchar" MaxLength="150" />
+    <Property Name="idNhanVien" Type="int" />
+  </EntityType>
+  <EntityType Name="TB_datNhanThongBao">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="150" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tb_LoaiSanPham">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tieuDeLSP" Type="nvarchar" MaxLength="150" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="SeoMoTa" Type="nvarchar" MaxLength="500" />
+    <Property Name="SeoTuKhoa" Type="nvarchar" MaxLength="250" />
+    <Property Name="SeoTieuDe" Type="nvarchar" MaxLength="250" />
+    <Property Name="icon" Type="nvarchar" MaxLength="300" />
+    <Property Name="biDanhLSP" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="tb_Order">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaSanPham" Type="nvarchar" MaxLength="200" />
+    <Property Name="Tenkh" Type="nvarchar" MaxLength="100" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="100" />
+    <Property Name="address" Type="nvarchar" MaxLength="200" />
+    <Property Name="tongTien" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="Craetedby" Type="nvarchar" MaxLength="250" />
+    <Property Name="idKhacHang" Type="int" />
+    <Property Name="Email" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="tb_orderDeTail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="orderId" Type="int" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="int" />
+  </EntityType>
+  <EntityType Name="tb_postBaiViet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tieuDe" Type="nvarchar" MaxLength="250" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="moTa" Type="nvarchar" MaxLength="400" />
+    <Property Name="ChiTiet" Type="nvarchar(max)" />
+    <Property Name="image" Type="nvarchar" MaxLength="500" />
+    <Property Name="SeoTieuDe" Type="nvarchar" MaxLength="250" />
+    <Property Name="SeoMoTa" Type="nvarchar" MaxLength="550" />
+    <Property Name="SeoTuKhoa" Type="nvarchar" MaxLength="250" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="Craetedby" Type="nvarchar" MaxLength="250" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="biDanh" Type="nvarchar" MaxLength="100" />
+    <Property Name="isActive" Type="varchar" MaxLength="1" />
+    <Property Name="idNhanVien" Type="int" />
+  </EntityType>
+  <EntityType Name="TB_PRODUCT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tieuDe" Type="nvarchar" MaxLength="150" />
+    <Property Name="ProductCategoryId" Type="int" />
+    <Property Name="productCode" Type="nvarchar" MaxLength="100" />
+    <Property Name="moTa" Type="nvarchar" MaxLength="150" />
+    <Property Name="ChiTiet" Type="nvarchar(max)" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Pricesales" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="SeoMoTa" Type="nvarchar" MaxLength="500" />
+    <Property Name="SeoTuKhoa" Type="nvarchar" MaxLength="250" />
+    <Property Name="SeoTieuDe" Type="nvarchar" MaxLength="250" />
+    <Property Name="isHome" Type="varchar" MaxLength="10" />
+    <Property Name="isFeature" Type="varchar" MaxLength="10" />
+    <Property Name="isHost" Type="varchar" MaxLength="10" />
+    <Property Name="isSale" Type="varchar" MaxLength="10" />
+    <Property Name="biDanh" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="tb_ProductImage">
+    <Key>
+      <PropertyRef Name="IDImage" />
+    </Key>
+    <Property Name="IDImage" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="image" Type="nvarchar" MaxLength="100" />
+    <Property Name="idDefault" Type="varchar" MaxLength="10" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="Craetedby" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="tb_ThongBaoMoi">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tieuDe" Type="nvarchar" MaxLength="150" />
+    <Property Name="Categoryld" Type="int" />
+    <Property Name="moTa" Type="nvarchar" MaxLength="400" />
+    <Property Name="image" Type="nvarchar" MaxLength="500" />
+    <Property Name="SeoTieuDe" Type="nvarchar" MaxLength="250" />
+    <Property Name="SeoMoTa" Type="nvarchar" MaxLength="550" />
+    <Property Name="SeoTuKhoa" Type="nvarchar" MaxLength="250" />
+    <Property Name="biDanh" Type="nvarchar" MaxLength="100" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="idNhanVien" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_ChucNangPhanQuyen">
+    <End Role="CHUCNANG" Type="Self.CHUCNANG" Multiplicity="1" />
+    <End Role="NhanVien_ChucNang" Type="Self.NhanVien_ChucNang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUCNANG">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NhanVien_ChucNang">
+        <PropertyRef Name="IDnchucNang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NhanVienChucNang">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+    <End Role="NhanVien_ChucNang" Type="Self.NhanVien_ChucNang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NhanVien_ChucNang">
+        <PropertyRef Name="IDnhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NhanVienPHANQUYEN">
+    <End Role="PHANQUYEN" Type="Self.PHANQUYEN" Multiplicity="0..1" />
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHANQUYEN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NHANVIEN">
+        <PropertyRef Name="idPhanQuyen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_Category_NhanVien">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
+    <End Role="tb_Category" Type="Self.tb_Category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tb_Category">
+        <PropertyRef Name="idNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_Order_KHACHHANG">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+    <End Role="tb_Order" Type="Self.tb_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tb_Order">
+        <PropertyRef Name="idKhacHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_OrderDetail_Product">
+    <End Role="TB_PRODUCT" Type="Self.TB_PRODUCT" Multiplicity="0..1" />
+    <End Role="tb_orderDeTail" Type="Self.tb_orderDeTail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_PRODUCT">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tb_orderDeTail">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_orderDetail_tb_order">
+    <End Role="tb_Order" Type="Self.tb_Order" Multiplicity="0..1" />
+    <End Role="tb_orderDeTail" Type="Self.tb_orderDeTail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Order">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tb_orderDeTail">
+        <PropertyRef Name="orderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_Posts_Category">
+    <End Role="tb_Category" Type="Self.tb_Category" Multiplicity="0..1" />
+    <End Role="tb_postBaiViet" Type="Self.tb_postBaiViet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Category">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tb_postBaiViet">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_PRODUCT_tb_LoaiSanPham">
+    <End Role="tb_LoaiSanPham" Type="Self.tb_LoaiSanPham" Multiplicity="0..1" />
+    <End Role="TB_PRODUCT" Type="Self.TB_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_LoaiSanPham">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TB_PRODUCT">
+        <PropertyRef Name="ProductCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_ProductImage_Product">
+    <End Role="TB_PRODUCT" Type="Self.TB_PRODUCT" Multiplicity="0..1" />
+    <End Role="tb_ProductImage" Type="Self.tb_ProductImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_PRODUCT">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tb_ProductImage">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_ThongBaoMoi_tb_Category">
+    <End Role="tb_Category" Type="Self.tb_Category" Multiplicity="0..1" />
+    <End Role="tb_ThongBaoMoi" Type="Self.tb_ThongBaoMoi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Category">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tb_ThongBaoMoi">
+        <PropertyRef Name="Categoryld" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_THONGBAO_NHANVIEN">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
+    <End Role="tb_ThongBaoMoi" Type="Self.tb_ThongBaoMoi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tb_ThongBaoMoi">
+        <PropertyRef Name="idNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WEBSITE_BANHANGModelStoreContainer">
+    <EntitySet Name="ACOUNT" EntityType="Self.ACOUNT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHUCNANG" EntityType="Self.CHUCNANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhanVien_ChucNang" EntityType="Self.NhanVien_ChucNang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHANQUYEN" EntityType="Self.PHANQUYEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_Category" EntityType="Self.tb_Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_datNhanThongBao" EntityType="Self.TB_datNhanThongBao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_LoaiSanPham" EntityType="Self.tb_LoaiSanPham" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_Order" EntityType="Self.tb_Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_orderDeTail" EntityType="Self.tb_orderDeTail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_postBaiViet" EntityType="Self.tb_postBaiViet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_PRODUCT" EntityType="Self.TB_PRODUCT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_ProductImage" EntityType="Self.tb_ProductImage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_ThongBaoMoi" EntityType="Self.tb_ThongBaoMoi" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ChucNangPhanQuyen" Association="Self.FK_ChucNangPhanQuyen">
+      <End Role="CHUCNANG" EntitySet="CHUCNANG" />
+      <End Role="NhanVien_ChucNang" EntitySet="NhanVien_ChucNang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NhanVienChucNang" Association="Self.FK_NhanVienChucNang">
+      <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+      <End Role="NhanVien_ChucNang" EntitySet="NhanVien_ChucNang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NhanVienPHANQUYEN" Association="Self.FK_NhanVienPHANQUYEN">
+      <End Role="PHANQUYEN" EntitySet="PHANQUYEN" />
+      <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_Category_NhanVien" Association="Self.FK_tb_Category_NhanVien">
+      <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+      <End Role="tb_Category" EntitySet="tb_Category" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_Order_KHACHHANG" Association="Self.FK_tb_Order_KHACHHANG">
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+      <End Role="tb_Order" EntitySet="tb_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_OrderDetail_Product" Association="Self.FK_tb_OrderDetail_Product">
+      <End Role="TB_PRODUCT" EntitySet="TB_PRODUCT" />
+      <End Role="tb_orderDeTail" EntitySet="tb_orderDeTail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_orderDetail_tb_order" Association="Self.FK_tb_orderDetail_tb_order">
+      <End Role="tb_Order" EntitySet="tb_Order" />
+      <End Role="tb_orderDeTail" EntitySet="tb_orderDeTail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_Posts_Category" Association="Self.FK_tb_Posts_Category">
+      <End Role="tb_Category" EntitySet="tb_Category" />
+      <End Role="tb_postBaiViet" EntitySet="tb_postBaiViet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_PRODUCT_tb_LoaiSanPham" Association="Self.FK_TB_PRODUCT_tb_LoaiSanPham">
+      <End Role="tb_LoaiSanPham" EntitySet="tb_LoaiSanPham" />
+      <End Role="TB_PRODUCT" EntitySet="TB_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_ProductImage_Product" Association="Self.FK_tb_ProductImage_Product">
+      <End Role="TB_PRODUCT" EntitySet="TB_PRODUCT" />
+      <End Role="tb_ProductImage" EntitySet="tb_ProductImage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_ThongBaoMoi_tb_Category" Association="Self.FK_tb_ThongBaoMoi_tb_Category">
+      <End Role="tb_Category" EntitySet="tb_Category" />
+      <End Role="tb_ThongBaoMoi" EntitySet="tb_ThongBaoMoi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_THONGBAO_NHANVIEN" Association="Self.FK_THONGBAO_NHANVIEN">
+      <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+      <End Role="tb_ThongBaoMoi" EntitySet="tb_ThongBaoMoi" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

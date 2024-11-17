@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Web_BanDT.Models.csdl.ProductImage>
+@{
+    ViewBag.Title = "Ảnh sản phảm";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutEmpty.cshtml";
+
+
+}
+<style>
+    .glImage {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+        .glImage li {
+            /*flex-direction:*/
+            display: inline-block;
+            position: relative;
+        }
+
+    .box-btn {  
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+</style>
+<!-- Main content -->
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Ảnh sản phẩm</h3>
+
+            <div class="card-tools">
+                <input type="button" class="btn btn-primary" id="taiAnh" onclick="BrowseServer();" value="Tải ảnh" />
+            </div>
+        </div>
+        <div class="card-body">
+            <ul class="glImage">
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <li id="trow_@item.id">
+                            <img src="@item.image" width="200" />
+                            <div class="box-btn">
+                                <a href="/admin/ProductImage/delete/@item.id" class="btn btn-sm btn-danger btnDelete"><i class="fa fa-trash"></i></a>
+                            </div>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+
+        </div>
+        <!-- /.card-footer-->
+    </div>
+    <!-- /.card -->
+
+</section>
+<!-- /.content -->
+
+<script>
+    function BrowseServer(field) {
+        debugger;
+        var finder = new CKFinder();
+        finder.selectActionFunction = function (fileUrl) {
+            addImageProduct(@ViewBag.productId,fileUrl); // Thay đổi thành addImageProduct
+        }
+        finder.popup();
+    }
+
+    function addImageProduct(id, url) { // Thay đổi tên hàm thành addImageProduct
+        debugger;
+        $.ajax({
+            url: '/admin/ProductImage/AddImage',
+            type: 'POST',
+            data: { productId: id, url: url },
+            success: function (rs) {
+                if (rs.Success) {
+                    window.location.reload();
+                }
+            }
+        });
+    }
+
+
+</script>

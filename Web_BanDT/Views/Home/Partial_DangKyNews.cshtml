@@ -1,0 +1,43 @@
+﻿@model Web_BanDT.Models.EF.TB_datNhanThongBao
+
+<div class="newsletter">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
+                    <h4 class="text-danger">Bản Tin</h4>
+                    <p>Đăng ký nhận bản tin của chúng tôi và được giảm giá 20% cho lần mua hàng đầu tiên của bạn</p>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                @using (Ajax.BeginForm("Partial_DangKyNews", "Home", new AjaxOptions
+                {
+                    OnBegin = "OnBeginSub",// Thông báo chờ
+                    OnSuccess = "OnSuccessSub",// Thông Báo thành công
+                    OnFailure = "OnFailureSub"// Thông Báo Lỗi
+                }))
+                {
+                    @Html.AntiForgeryToken()
+                    <script>
+                        function OnBeginSub() {
+
+                        }
+                        function OnSuccessSub (rs) {
+                            if (rs.Success) {
+                                alert("Bạn đã đăng ký nhận thông báo thành công");
+                            }
+                        }
+                        function OnFailureSub(rs) {}
+                    </script>
+                    <div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">
+                      
+                        <input id="newsletter_email" name="Email" type="email" placeholder="Your email" required="required" data-error="Valid email is required.">
+                        <input id="newsletter_email" class="mx-3" name="Name" type="text" placeholder="Your Name" required="required" data-error="Valid Name is required.">
+                        <button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300" value="Submit">subscribe</button>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
